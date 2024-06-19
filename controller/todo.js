@@ -1,13 +1,7 @@
 const fs = require("fs").promises;
-
+const data = require("../model/todoData.json");
 const getTodos = async (req, res) => {
-  try {
-    const jsonData = await fs.readFile("./model/todoData.json", "utf8");
-    const data = await JSON.parse(jsonData);
-    res.send(data);
-  } catch (err) {
-    console.log(err);
-  }
+  res.send(data);
 };
 
 const saveTodos = async (req, res) => {
