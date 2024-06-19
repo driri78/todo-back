@@ -7,7 +7,10 @@ const getTodos = async (req, res) => {
 const saveTodos = async (req, res) => {
   const { todo } = req.body;
   try {
-    await fs.writeFile("./model/todoData.json", JSON.stringify(todo));
+    await fs.writeFile(
+      process.cwd() + "/model/todoData.json",
+      JSON.stringify(todo)
+    );
     res.send({ success: true });
   } catch (err) {
     console.log(err);
