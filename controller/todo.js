@@ -17,7 +17,7 @@ const saveTodos = async (req, res) => {
   const { todo } = req.body;
   try {
     await fs.writeFile(
-      "/model/todoData.json",
+      path.join(process.cwd() + "/model/todoData.json"),
       `module.exports = ${JSON.stringify(todo)}`
     );
     res.send({ success: true });
